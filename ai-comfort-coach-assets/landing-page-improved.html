@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Comfort Coach — Finally Feel Confident Using AI</title>
+    <meta name="description" content="Go from AI-anxious to AI-confident in 30 days. Personal AI coaching that adapts to your pace, without the tech overwhelm or jargon.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-secondary {
+            padding: 10px 24px;
+            border: 2px solid #2563eb;
+            background: white;
+            color: #2563eb;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .hero .subheadline {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 40px;
+            background: white;
+            color: #667eea;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .hero-cta {
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtext {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Social Proof Bar */
+        .social-proof {
+            background: #f8fafc;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .social-proof-text {
+            color: #64748b;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .social-proof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #2563eb;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        /* Pain Points Section */
+        .pain-points {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .pain-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+        
+        .pain-emoji {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .pain-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+        
+        .pain-description {
+            color: #64748b;
+            font-size: 15px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #667eea;
+            border-radius: 50%;
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .step-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .step-description {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border-left: 4px solid #667eea;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .testimonial-role {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+        
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+        
+        .plan-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .plan-price span {
+            font-size: 18px;
+            color: #64748b;
+        }
+        
+        .plan-description {
+            color: #64748b;
+            margin-bottom: 30px;
+            min-height: 60px;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            color: #475569;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .plan-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .plan-cta {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        
+        .plan-cta:hover {
+            background: #5568d3;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+        
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer {
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        /* CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        footer a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">AI Comfort Coach</div>
+                <div class="header-buttons">
+                    <a href="#" class="btn-secondary">Log In</a>
+                    <a href="#pricing" class="btn-secondary">Pricing</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Finally Feel Confident Using AI<br>Without the Tech Overwhelm</h1>
+            <p class="subheadline">
+                Think of us as your personal AI therapist — not here to impress you with tech specs, 
+                but to help you actually USE AI without the anxiety, confusion, or feeling like everyone else is ahead of you.
+            </p>
+            <div class="hero-cta">
+                <a href="#" class="btn-primary">Take the Free AI Comfort Quiz</a>
+            </div>
+            <p class="hero-subtext">No credit card required • Start in 2 minutes • 30-day money-back guarantee</p>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="social-proof-text">Join thousands learning AI the calm, practical way</p>
+            <div class="social-proof-stats">
+                <div class="stat">
+                    <div class="stat-number">12,847</div>
+                    <div class="stat-label">Active Learners</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">89%</div>
+                    <div class="stat-label">Feel More Confident</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4.9/5</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 class="section-title">Built for people who feel...</h2>
+            <p class="section-subtitle">
+                Most people don't need more hype around AI. They need calm guidance, 
+                practical examples, and a place to learn without feeling behind.
+            </p>
+            
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-emoji">😰</div>
+                    <h3 class="pain-title">Curious but behind</h3>
+                    <p class="pain-description">You know AI matters but don't know where to start</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-emoji">😵</div>
+                    <h3 class="pain-title">Interested but overwhelmed</h3>
+                    <p class="pain-description">Every article makes it sound more complicated</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-emoji">😤</div>
+                    <h3 class="pain-title">Tired of tech jargon</h3>
+                    <p class="pain-description">You want plain language, not a computer science lesson</p>
+                </div>
+                <div class="pain-card">
+                    <div class="pain-emoji">😔</div>
+                    <h3 class="pain-title">Embarrassed to ask</h3>
+                    <p class="pain-description">You're afraid to look stupid asking basic AI questions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Three simple steps. No setup. No technical knowledge needed.</p>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Find your starting point</h3>
+                    <p class="step-description">
+                        Take the AI Comfort Score quiz. It places you on the right learning track — 
+                        so you never start in the wrong place.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Choose your coach</h3>
+                    <p class="step-description">
+                        Pick a tutor personality that fits how you learn best. Patient and calm, 
+                        or direct and practical — there's a coach for every style.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Build confidence through practice</h3>
+                    <p class="step-description">
+                        Have real conversations. Try things. Ask questions. Build skills you use 
+                        the same day — not someday.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "I went from avoiding AI completely to using it every day at work. 
+                        The patient teaching style made all the difference."
+                    </p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-role">Marketing Manager</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Finally, someone explained AI in normal human language. My team is 
+                        now using this for our whole department."
+                    </p>
+                    <div class="testimonial-author">James K.</div>
+                    <div class="testimonial-role">HR Director</div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "I was so anxious about being 'behind' on AI. After 2 weeks, 
+                        I'm not just comfortable—I'm excited."
+                    </p>
+                    <div class="testimonial-author">Patricia L.</div>
+                    <div class="testimonial-role">Educator</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, Honest Pricing</h2>
+            <p class="section-subtitle">Start free. Upgrade when you're ready to go deeper.</p>
+            
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">Starter Journey</h3>
+                    <div class="plan-price">$0<span>/month</span></div>
+                    <p class="plan-description">Dip your toes in. Try AI coaching with zero risk, zero pressure.</p>
+                    <ul class="plan-features">
+                        <li>3 AI tutor personalities</li>
+                        <li>Sessions up to 60 minutes</li>
+                        <li>Level 1 — Basic Prompting</li>
+                        <li>6 learning topics</li>
+                        <li>AI Comfort Score quiz</li>
+                        <li>Community forum access</li>
+                    </ul>
+                    <a href="#" class="plan-cta">Get Started Free</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card featured">
+                    <div class="badge">Most Popular</div>
+                    <h3 class="plan-name">Confidence Builder</h3>
+                    <div class="plan-price">$19<span>/month</span></div>
+                    <p class="plan-description">For professionals ready to make AI part of their daily workflow.</p>
+                    <ul class="plan-features">
+                        <li>6 AI tutor personalities</li>
+                        <li>Sessions up to 2.5 hours</li>
+                        <li>Level 2 — Intermediate Prompting</li>
+                        <li>Job-specific prompt library</li>
+                        <li>Progress dashboard & tracking</li>
+                        <li>Weekly group coaching call</li>
+                        <li>Priority email support</li>
+                    </ul>
+                    <a href="#" class="plan-cta">Start Pro — $19/mo</a>
+                    <p style="text-align:center; margin-top:10px; font-size:14px; color:#64748b;">
+                        or $199/year (save $29)
+                    </p>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card">
+                    <h3 class="plan-name">AI Mastery</h3>
+                    <div class="plan-price">$39<span>/month</span></div>
+                    <p class="plan-description">Master AI like a pro with advanced workflows and 1-on-1 coaching.</p>
+                    <ul class="plan-features">
+                        <li>All 9 AI tutor personalities</li>
+                        <li>Sessions up to 4 hours</li>
+                        <li>Level 3 — Expert Prompting</li>
+                        <li>Visual Creator & Design Master</li>
+                        <li>The Strategist workflows</li>
+                        <li>Monthly 1-on-1 coaching call</li>
+                        <li>100+ advanced prompt templates</li>
+                        <li>AI Proficiency Certificate</li>
+                    </ul>
+                    <a href="#" class="plan-cta">Start Premium — $39/mo</a>
+                    <p style="text-align:center; margin-top:10px; font-size:14px; color:#64748b;">
+                        or $399/year (save $69)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">Why not just use ChatGPT for free?</h3>
+                    <p class="faq-answer">
+                        Great question! ChatGPT is a powerful tool, but it assumes you already know what to ask 
+                        and how to use it. AI Comfort Coach is designed specifically for people who feel overwhelmed 
+                        by AI — we provide structured learning, personalized coaching, and emotional support that you 
+                        won't get from a chatbot alone. Think of us as the training wheels that help you eventually 
+                        ride on your own.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">How is this different from a course?</h3>
+                    <p class="faq-answer">
+                        Courses are linear and one-size-fits-all. We adapt to YOUR pace, YOUR fears, and YOUR job. 
+                        Plus, you're not watching videos — you're having real conversations and building confidence 
+                        through practice, not passive consumption.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What if I'm really not technical?</h3>
+                    <p class="faq-answer">
+                        That's exactly who we built this for! Our most successful users are people who describe 
+                        themselves as "not tech people." You don't need any technical background — just curiosity 
+                        and 15 minutes to start.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I cancel anytime?</h3>
+                    <p class="faq-answer">
+                        Yes! No contracts, no commitments. Cancel with one click whenever you want. Plus, we offer 
+                        a 30-day money-back guarantee if you're not satisfied.
+                    </p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What happens after 30 days?</h3>
+                    <p class="faq-answer">
+                        The 30-day journey is just the beginning! We continuously add new topics, advanced techniques, 
+                        and specialized tracks. Many users stay to master advanced prompting, learn AI for specific 
+                        workflows, or work toward certification.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Feel Confident with AI?</h2>
+            <p>Join 12,847+ professionals building real AI skills without the overwhelm.</p>
+            <a href="#" class="btn-primary">Take the Free AI Comfort Quiz</a>
+            <p style="margin-top:20px; opacity:0.9;">No credit card required • Start in 2 minutes</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI Comfort Coach. All rights reserved.</p>
+            <div style="margin-top:20px;">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
