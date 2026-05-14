@@ -7,7 +7,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
-import { registerSimpleAuthRoutes } from "../auth/simpleAuth";
+import { registerMagicLinkAuthRoutes } from "../auth/magicLinkAuth";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -40,9 +40,9 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   
-  // Simple email/password auth routes
+  // Magic Link auth routes
   const authRouter = express.Router();
-  registerSimpleAuthRoutes(authRouter);
+  registerMagicLinkAuthRoutes(authRouter);
   app.use(authRouter);
   // tRPC API
   app.use(
