@@ -44,6 +44,16 @@ async function startServer() {
   const authRouter = express.Router();
   registerMagicLinkAuthRoutes(authRouter);
   app.use("/api", authRouter);
+
+  // Disable caching for HTML files to ensure fresh builds
+  app.use((req, res, next) => {
+    if (req.path.endsWith('.html') || req.path === '/') {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    }
+    next();
+  });
   // tRPC API
   app.use(
     "/api/trpc",
