@@ -1,7 +1,0 @@
-{
-  "started": "2026-03-23T22:37:00Z",
-  "currentStep": 7,
-  "completed": ["claude-api-key", "telegram", "email"],
-  "skipped": [],
-  "userName": "Horande"
-}
