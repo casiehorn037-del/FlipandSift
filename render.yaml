@@ -17,6 +17,8 @@ services:
         value: flipandsift_app
       - key: OAUTH_SERVER_URL
         value: https://auth.manus.im
+      - key: VITE_OAUTH_PORTAL_URL
+        value: https://auth.manus.im
       - key: DATABASE_URL
         sync: false
         required: true
