@@ -19,6 +19,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import ApiKeys from "./pages/ApiKeys";
 import Alerts from "./pages/Alerts";
 import AdminDashboard from "./pages/AdminDashboard";
+import Developer from "./pages/Developer";
 import { useAuth } from "./_core/hooks/useAuth";
 import { trpc } from "./lib/trpc";
 import { useEffect, useState } from "react";
