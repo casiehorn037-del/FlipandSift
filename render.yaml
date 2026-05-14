@@ -3,24 +3,30 @@ services:
     name: flipandsift
     runtime: node
     plan: starter
-    buildCommand: pnpm install && pnpm run build
+    region: oregon
+    buildCommand: npm install -g pnpm && pnpm install && pnpm run build
     startCommand: pnpm start
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
         generateValue: true
+        length: 32
       - key: VITE_APP_ID
         value: flipandsift_app
-      - key: DATABASE_URL
-        sync: false
       - key: OAUTH_SERVER_URL
         value: https://auth.manus.im
+      - key: DATABASE_URL
+        sync: false
+        required: true
       - key: OWNER_OPEN_ID
         sync: false
+        required: true
       - key: STRIPE_SECRET_KEY
         sync: false
       - key: STRIPE_PUBLISHABLE_KEY
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+    autoDeploy: true
