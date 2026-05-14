@@ -86,7 +86,7 @@ export default function Home() {
         
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <Badge className="mb-6 px-4 py-2 text-sm bg-indigo-100 text-indigo-700 border-indigo-200 font-semibold">
-            🚀 Trusted by 500+ Domain Flippers
+            🚀 Domain Discovery Platform
           </Badge>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-gray-900">
@@ -124,20 +124,20 @@ export default function Home() {
       <section className="bg-indigo-900 text-white py-12">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-4xl font-bold text-indigo-300">10,000+</div>
-            <div className="text-indigo-200 mt-1">Domains Analyzed</div>
+            <div className="text-4xl font-bold text-indigo-300">15+</div>
+            <div className="text-indigo-200 mt-1">Curated Domains</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-indigo-300">$2.4M+</div>
-            <div className="text-indigo-200 mt-1">Domain Sales Tracked</div>
+            <div className="text-4xl font-bold text-indigo-300">4</div>
+            <div className="text-indigo-200 mt-1">Domain Types</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-indigo-300">500+</div>
-            <div className="text-indigo-200 mt-1">Active Flippers</div>
+            <div className="text-4xl font-bold text-indigo-300">15+</div>
+            <div className="text-indigo-200 mt-1">SEO Metrics</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-indigo-300">4.9/5</div>
-            <div className="text-indigo-200 mt-1">User Rating</div>
+            <div className="text-4xl font-bold text-indigo-300">60s</div>
+            <div className="text-indigo-200 mt-1">Analysis Time</div>
           </div>
         </div>
       </section>
@@ -411,16 +411,12 @@ export default function Home() {
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-8 mt-12 text-gray-400">
             <div className="flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              <span>500+ Active Users</span>
+              <Globe className="w-5 h-5" />
+              <span>Live on Render</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5" />
-              <span>4.9/5 Average Rating</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5" />
-              <span>Trusted in 30+ Countries</span>
+              <span>15+ Curated Domains</span>
             </div>
           </div>
         </div>

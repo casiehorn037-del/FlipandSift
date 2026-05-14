@@ -10,7 +10,7 @@ interface ExitIntentModalProps {
   userCount?: number;
 }
 
-export function ExitIntentModal({ userCount = 500 }: ExitIntentModalProps) {
+export function ExitIntentModal({ userCount = 0 }: ExitIntentModalProps) {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
