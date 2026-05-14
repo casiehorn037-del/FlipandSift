@@ -8,6 +8,7 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { getDbStatus } from "./db-fallback";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -34,7 +35,26 @@ async function startServer() {
   
   // Health check endpoint - MUST be first
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", timestamp: new Date().toISOString() });
+    const dbStatus = getDbStatus();
+    res.json({ 
+      status: "ok", 
+      timestamp: new Date().toISOString(),
+      database: dbStatus
+    });
+  });
+  
+  // Setup check endpoint
+  app.get("/api/setup", (req, res) => {
+    const dbStatus = getDbStatus();
+    if (!dbStatus.configured) {
+      res.status(503).json({
+        error: "Service not configured",
+        message: "Please set DATABASE_URL environment variable in Render dashboard",
+        setupRequired: true
+      });
+    } else {
+      res.json({ configured: true });
+    }
   });
   
   // Stripe webhook MUST come before express.json() for signature verification
