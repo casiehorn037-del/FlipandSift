@@ -351,76 +351,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── SOCIAL PROOF ───────────────────────────────────────────────────── */}
-      <section className="px-6 py-20 bg-indigo-50">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-            What Domain Flippers Say About FlipandSift
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="shadow-xl">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Award key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
-                <p className="text-gray-700 text-lg mb-6 italic">
-                  "I used to spend 4 hours every morning analyzing SpamZilla. Now I upload a screenshot, 
-                  get my top 5 in 60 seconds, and I'm done in 20 minutes. I've already flipped 3 domains 
-                  this month for $4,200 profit. Game changer."
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
-                    MR
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">Mike Richardson</p>
-                    <p className="text-gray-500">Domain Flipper • 10-15 flips/month</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card className="shadow-xl">
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Award key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
-                <p className="text-gray-700 text-lg mb-6 italic">
-                  "The Sherlock Check saved me from buying a domain with hidden casino spam. 
-                  That one feature alone paid for a year of subscription. The AI analysis is 
-                  scary accurate - it's like having a domain expert on call 24/7."
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl">
-                    SK
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">Sarah Kim</p>
-                    <p className="text-gray-500">Domain Investor • Since 2019</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center gap-8 mt-12 text-gray-400">
-            <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5" />
-              <span>Live on Render</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5" />
-              <span>15+ Curated Domains</span>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* ─── PRICING SECTION ────────────────────────────────────────────────── */}
       <section className="px-6 py-20 bg-white">
