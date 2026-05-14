@@ -4,7 +4,13 @@ services:
     runtime: node
     plan: starter
     region: oregon
-    buildCommand: rm -rf dist node_modules .vite && npm install -g pnpm && pnpm install --frozen-lockfile && pnpm run build
+    buildCommand: |
+      echo "=== CLEAN BUILD START ===" 
+      rm -rf dist node_modules .vite .pnpm-store
+      npm install -g pnpm
+      pnpm install --no-frozen-lockfile
+      pnpm run build
+      echo "=== BUILD COMPLETE ==="
     startCommand: pnpm start
     healthCheckPath: /api/health
     envVars:
