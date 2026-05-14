@@ -12,8 +12,13 @@ const MAGIC_LINK_EXPIRY = "15m"; // 15 minutes
 const magicTokens = new Map<string, { email: string; expires: Date }>();
 
 export function registerMagicLinkAuthRoutes(router: Router) {
+  // Health check
+  router.get("/health", (req, res) => {
+    res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
   // Request magic link
-  router.post("/api/auth/magic-link", async (req, res) => {
+  router.post("/auth/magic-link", async (req, res) => {
     try {
       const { email } = req.body;
       
@@ -57,7 +62,7 @@ export function registerMagicLinkAuthRoutes(router: Router) {
   });
 
   // Verify magic link
-  router.get("/api/auth/verify-magic-link", async (req, res) => {
+  router.get("/auth/verify-magic-link", async (req, res) => {
     try {
       const { token } = req.query;
 
@@ -127,7 +132,7 @@ export function registerMagicLinkAuthRoutes(router: Router) {
   });
 
   // Verify auth token
-  router.get("/api/auth/me", async (req, res) => {
+  router.get("/auth/me", async (req, res) => {
     try {
       const token = req.headers.authorization?.replace("Bearer ", "");
       
@@ -162,7 +167,7 @@ export function registerMagicLinkAuthRoutes(router: Router) {
   });
 
   // Logout
-  router.post("/api/auth/logout", (req, res) => {
+  router.post("/auth/logout", (req, res) => {
     res.json({ success: true });
   });
 }

@@ -40,10 +40,10 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   
-  // Magic Link auth routes
+  // Magic Link auth routes - mount at /api/auth
   const authRouter = express.Router();
   registerMagicLinkAuthRoutes(authRouter);
-  app.use(authRouter);
+  app.use("/api", authRouter);
   // tRPC API
   app.use(
     "/api/trpc",
