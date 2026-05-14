@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: flipandsift
+    runtime: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install -g pnpm && pnpm install --frozen-lockfile && pnpm run build
+    startCommand: pnpm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+        length: 32
+      - key: DATABASE_URL
+        sync: false
+        required: true
+      - key: OWNER_OPEN_ID
+        sync: false
+    autoDeploy: true
