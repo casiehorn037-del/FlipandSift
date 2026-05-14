@@ -31,6 +31,12 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  
+  // Health check endpoint - MUST be first
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+  
   // Stripe webhook MUST come before express.json() for signature verification
   const { registerStripeWebhook } = await import("../stripeWebhook");
   app.post("/api/stripe/webhook", express.raw({ type: "application/json" }), (req, res, next) => next());
