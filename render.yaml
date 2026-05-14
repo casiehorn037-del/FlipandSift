@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: starter
     region: oregon
-    buildCommand: npm install -g pnpm && pnpm install && pnpm run build
+    buildCommand: npm install -g pnpm && pnpm install --no-frozen-lockfile && pnpm run build
     startCommand: pnpm start
     healthCheckPath: /api/health
     envVars:
