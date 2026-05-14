@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: flipandsift
+    runtime: node
+    plan: starter
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: VITE_APP_ID
+        value: flipandsift_app
+      - key: DATABASE_URL
+        sync: false
+      - key: OAUTH_SERVER_URL
+        value: https://auth.manus.im
+      - key: OWNER_OPEN_ID
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
